@@ -48,6 +48,7 @@ export default {
     width: 100%;
     height: @th;
     line-height: @th;
+    font-size: 16px;
     span {
       display: inline-block;
       float: right;

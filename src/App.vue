@@ -64,6 +64,9 @@ export default {
 
   .menu-wrap {
     height: 44px;
+    .van-tab__text {
+      font-size: 18px;
+    }
   }
   
   .container-wrap {

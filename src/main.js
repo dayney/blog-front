@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import 'amfe-flexible/index.js'
 import 'default-passive-events'
 import App from './App.vue'
 import router from './router/index'

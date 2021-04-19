@@ -13,8 +13,6 @@ import { useRouter } from 'vue-router'
 import { Swipe, SwipeItem } from "vant";
 import SectionCell from "../components/SectionCell.vue";
 
-console.log("=========");
-
 export default {
   name: 'Index',
   components: {

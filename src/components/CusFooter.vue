@@ -13,16 +13,17 @@ export default {
 <style lang="less">
 .footer-wrap {
   @h: 30px;
+  @c: #646566;
   margin-top: 20px;
   width: 100%;
   height: @h;
   line-height: @h;
   text-align: center;
   font-size: 12px;
-  color: #333;
+  color: @c;
 
   a {
-    color: #333;
+    color: @c;
   }
 }  
 </style>
