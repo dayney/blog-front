@@ -1,26 +1,31 @@
 <template>
   <div class="wrap">
-    <van-tabs v-model:active="active" animated>
+    <van-tabs v-model:active="active" animated class="menu-wrap">
       <van-tab title="首页" name=""></van-tab>
       <van-tab title="文章" name="article"></van-tab>
       <van-tab title="前端" name="front"></van-tab>
       <van-tab title="后端" name="admin"></van-tab>
       <van-tab title="关于" name="about"></van-tab>
     </van-tabs>
-    <router-view />
+    <div class="container-wrap">
+      <router-view />
+    </div>
+    <cus-footer></cus-footer>
   </div>
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router'
 import { Tabs, Tab } from 'vant';
+import CusFooter from './components/CusFooter.vue'
 
 export default {
   name: 'App',
   components: {
     [Tabs.name]: Tabs,
     [Tab.name]: Tab,
+    CusFooter,
   },
   setup() {
     let router = new useRouter();
@@ -51,6 +56,22 @@ export default {
 }
 .wrap {
   padding: 8px;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  .menu-wrap {
+    height: 44px;
+  }
+  
+  .container-wrap {
+    flex: 1;
+  }
+  .footer-wrap {
+    height: 30px;
+  }
 }
 </style>
 
