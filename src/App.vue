@@ -55,7 +55,6 @@ export default {
   margin: 0;
 }
 .wrap {
-  padding: 8px;
   width: 100vw;
   min-height: 100vh;
   box-sizing: border-box;
@@ -73,7 +72,7 @@ export default {
     flex: 1;
   }
   .footer-wrap {
-    height: 40px;  // 此处是布局，修改需要主要components/CusFooters中的样式
+    height: 60px;  // 此处是布局，修改需要主要components/CusFooters中的样式
   }
 }
 </style>
