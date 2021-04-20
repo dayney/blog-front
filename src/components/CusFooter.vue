@@ -1,6 +1,6 @@
 <template>
   <div class="footer-wrap">
-    <p>Copyright © 2021 <router-link to="/about">蓝色天齐</router-link></p>
+    <p>Copyright © 2021 <router-link to="/about">蓝色天齐的独立博客</router-link></p>
     <p><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank" class="click">鄂ICP备2002415号</a></p>
 
   </div>
