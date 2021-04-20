@@ -73,7 +73,7 @@ export default {
     flex: 1;
   }
   .footer-wrap {
-    height: 30px;
+    height: 40px;  // 此处是布局，修改需要主要components/CusFooters中的样式
   }
 }
 </style>

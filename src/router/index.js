@@ -77,7 +77,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to) => {
   // ${//to and from are Route Object,next() must be called to resolve the hook}
   // store.commit('updateLoadingStatus', {isLoading: false})
-  console.log('end loading');
+  // console.log('end loading');
   // next();
 });
 

@@ -1,6 +1,8 @@
 <template>
   <div class="footer-wrap">
-    Copyright © 2021 <router-link to="/about">蓝色天齐</router-link>
+    <p>Copyright © 2021 <router-link to="/about">蓝色天齐</router-link></p>
+    <p><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank" class="click">鄂ICP备2002415号</a></p>
+
   </div>
 </template>
 
@@ -12,15 +14,19 @@ export default {
 
 <style lang="less">
 .footer-wrap {
-  @h: 30px;
   @c: #646566;
+  display: block;
   margin-top: 20px;
   width: 100%;
-  height: @h;
-  line-height: @h;
   text-align: center;
   font-size: 12px;
   color: @c;
+  
+  p {
+    @h: 20px;
+    height: @h;
+    line-height: @h;
+  }
 
   a {
     color: @c;
