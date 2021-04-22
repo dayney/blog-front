@@ -11,13 +11,14 @@
       <router-view />
     </div>
     <cus-footer></cus-footer>
+    <div v-show="isShowBackTop" class="go-top"><van-icon name="back-top" size="40"/></div>
   </div>
 </template>
 
 <script>
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted, nextTick} from 'vue';
 import { useRouter } from 'vue-router'
-import { Tabs, Tab } from 'vant';
+import { Tabs, Tab, Icon } from 'vant';
 import CusFooter from './components/CusFooter.vue'
 
 export default {
@@ -25,11 +26,13 @@ export default {
   components: {
     [Tabs.name]: Tabs,
     [Tab.name]: Tab,
+    [Icon.name]: Icon,
     CusFooter,
   },
   setup() {
     let router = new useRouter();
     let active = ref("");
+    let isShowBackTop = ref(false);
 
     watch(active, (active, prevActive) => {
       router.push({
@@ -41,9 +44,27 @@ export default {
       active.value = to.path.split('/')[1];
       next();
     });
+    
+    const isShowBackTopHandle = () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+      // 当滑动的距离草果1/3屏幕的高度就隐藏
+      if(scrollTop > (window.outerHeight / 3)) {
+        isShowBackTop.value = true;
+      } else {
+        isShowBackTop.value = false;
+      }
+    }
+
+    onMounted(() => {
+      nextTick(() => {
+        window.addEventListener('scroll', isShowBackTopHandle, true);
+      });
+    })
 
     return {
       active,
+      isShowBackTop,
     }
   }
 }
@@ -73,6 +94,16 @@ export default {
   }
   .footer-wrap {
     height: 60px;  // 此处是布局，修改需要主要components/CusFooters中的样式
+  }
+
+  .go-top {
+    @w: 40px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: @w;
+    height: @w;
+    background-color: rgba(223, 223, 223, 0.6);
   }
 }
 </style>
