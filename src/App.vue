@@ -16,10 +16,11 @@
 </template>
 
 <script>
-import { ref, watch, onMounted, nextTick} from 'vue';
+import { ref, watch, onMounted, nextTick, } from 'vue';
 import { useRouter } from 'vue-router'
 import { Tabs, Tab, Icon } from 'vant';
-import CusFooter from './components/CusFooter.vue'
+import CusFooter from './components/CusFooter.vue';
+import { getUrlRelativePath } from './utils/helps';
 
 export default {
   name: 'App',
@@ -39,11 +40,12 @@ export default {
         path: active || "/",
       });
     });
-   
-    router.beforeEach((to, from, next) => {
-      active.value = to.path.split('/')[1];
-      next();
-    });
+    
+    let currrentUrl = getUrlRelativePath();    
+    // '' -- 首页   front--前端  admin--后端 about--关于
+    if(['', 'front', 'admin', 'about'].includes(currrentUrl)) {
+      active.value = currrentUrl;
+    }
     
     const isShowBackTopHandle = () => {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;

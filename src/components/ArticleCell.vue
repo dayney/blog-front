@@ -1,5 +1,5 @@
 <template>
-  <div  class="article-cell">
+  <div @click="goArticleDetail" class="article-cell">
       <div class="title">这里是文章的标题这里是文章的标题这里是文章的标题这里是文章的标题这里是文章的标题这里是文章的标题</div>
       <img src="https://img.yzcdn.cn/vant/apple-1.jpg" alt="文章的小细节" class="article-img"/>
       <div class="instroduce">这里是描述，这里是描述，这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述，这里是描述，这里是描述这里是描述这里是描述这里是描述这里是描述这里是描述</div>
@@ -16,9 +16,30 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
 export default {
   name: 'ArticleCell',
-  props: ['article']
+  props: ['article'],
+  setup() {
+    const router = new useRouter();
+    const goArticleDetail = () => {
+      console.log('enter goArticleDetail ...');
+      router.push({
+        path: 'articleDetail',
+        query: {
+          id: 111,
+        }
+      })
+    };
+
+
+    
+
+
+    return {
+      goArticleDetail,
+    }
+  }
 }
 </script>
 

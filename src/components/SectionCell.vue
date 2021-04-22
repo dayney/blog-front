@@ -32,6 +32,10 @@ export default {
       emit('selectModuleName', moduleName);
     }
     console.log('enter SectionCell ...');
+
+   
+
+
     return {
       viewMore,
     }

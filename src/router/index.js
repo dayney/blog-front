@@ -34,6 +34,14 @@ const routes = [
     }
   },
   {
+    path: "/articleDetail",
+    name: "ArticleDetail",
+    component: () => import("../views/articleDetail.vue"),
+    meta: {
+      title: '文章详情',
+    }
+  },
+  {
     path: "/about",
     name: "About",
     component: () => import("../views/about.vue"),

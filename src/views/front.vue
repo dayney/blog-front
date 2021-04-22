@@ -43,7 +43,7 @@ export default {
         }
       }, 1000);
     }
-
+    
     return {
       loading,
       finished,
